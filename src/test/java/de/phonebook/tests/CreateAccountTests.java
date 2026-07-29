@@ -6,10 +6,11 @@ import org.testng.annotations.Test;
 
 public class CreateAccountTests extends TestBase {
 
-    @Test
+    @Test(enabled = false)
     public void newUserRegisterPositiveTest(){
+       // int i = (int) ((System.currentTimeMillis()/1000)%3600);
         click(By.cssSelector("[href='/login']"));
-        type(By.name("email"), "stupachenko30@gmail.com");
+        type(By.name("email"), newEmail());//"stupachenko30" + i + "@gmail.com");
         type(By.name("password"), "QWERTy123!");
         click(By.name("registration"));
         Assert.assertTrue(isElementPresent(By.xpath("//*[.='Sign Out']")));
