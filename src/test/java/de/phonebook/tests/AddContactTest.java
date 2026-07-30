@@ -10,25 +10,32 @@ public class AddContactTest extends TestBase{
     @BeforeMethod
     public void precondition(){
 //before -login
-        clickOnLoginLink();
-        fillLoginRegisterForm("stupachenko30@gmail.com", "QWERTy123!");
-        clickOnLoginButton();
+        app.getUser().clickOnLoginLink();
+        app.getUser().fillLoginRegisterForm(new de.phonebook.model.User().setEmail("stupachenko30@gmail.com"). setPassword("QWERTy123!"));
+        app.getUser().clickOnLoginButton();
 
     }
 //click on add link
 @Test
     public void addContactPositiveTest(){
-    clickOnAddLink();
+    app.getContact().clickOnAddLink();
 
-    fillAddContactForm("Oliver", "Kan", "12345678458", "kan@gmail.com", "TelAviv", "QA");
-    clickOnSaveButton();
-    Assert.assertTrue(verifyByName("Oliver"));
+    app.getContact().fillAddContactForm(new de.phonebook.model.Contact()
+            .setName("Oliver")
+            .setLastName("Kan")
+            .setPhone("12345678458")
+            .setEmail("kan@gmail.com")
+            .setAddress("TelAviv")
+            .setDescription("QA"));
+    app.getContact().clickOnSaveButton();
+    Assert.assertTrue(app.getContact().verifyByName("Oliver"));
+
 }
 
     @AfterMethod
     public void postCondition(){
            //click on card
-           RemoveContact();
+           app.getContact().RemoveContact();
 
        }
 
