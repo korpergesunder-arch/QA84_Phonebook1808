@@ -9,6 +9,11 @@ public class HomePageHelper extends de.phonebook.core.BaseHelper {
     }
 
     public boolean isHomeComponentPresent(){
-    return driver.findElements(By.xpath("//div[2]//h1")).size()>0;
+
+        return driver.findElements(By.xpath("//div[2]//h1")).size()>0;
+    }
+
+    public void clickOnHomeLink() {
+        click(By.cssSelector("[href='/home']"));
     }
 }

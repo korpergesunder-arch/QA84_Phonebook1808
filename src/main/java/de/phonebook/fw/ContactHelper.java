@@ -1,5 +1,6 @@
 package de.phonebook.fw;
 
+import de.phonebook.model.Contact;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -41,7 +42,7 @@ public class ContactHelper extends de.phonebook.core.BaseHelper {
 
     public void RemoveContact() {
         click(By.cssSelector(".contact-item_card__2SOIM"));
-//click on Remove button
+//click on Remove button;
         click(By.xpath("//button[.='Remove']"));
     }
 

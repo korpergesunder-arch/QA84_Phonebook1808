@@ -1,5 +1,6 @@
 package de.phonebook.tests;
 
+import de.phonebook.core.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -7,6 +8,9 @@ import org.testng.annotations.Test;
 public class RemoveContactTests extends TestBase {
     @BeforeMethod
     public void precondition(){
+        if (!app.getUser().isLoginLinkPresent()){
+            app.getUser().clickOnSignOutButton();;
+        }
         app.getUser().clickOnLoginLink();
         app.getUser().fillLoginRegisterForm(new de.phonebook.model.User().setEmail("stupachenko30@gmail.com"). setPassword("QWERTy123!"));
         app.getUser().clickOnLoginButton();
@@ -18,6 +22,8 @@ public class RemoveContactTests extends TestBase {
                 .setEmail("kan@gmail.com")
                 .setAddress("TelAviv")
                 .setDescription("QA"));
+        app.getContact().clickOnSaveButton();
+        Assert.assertTrue(app.getContact().verifyByName("Oliver"));
     }
     @Test
     public void removeContactTest(){

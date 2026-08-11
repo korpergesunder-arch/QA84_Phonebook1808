@@ -34,6 +34,7 @@ public class BaseHelper {
         if(alert == null){
         return false;
     }else {
+            driver.switchTo().alert().accept(); //click on OK button
             return true;
         }
 
