@@ -46,6 +46,7 @@ public class AddContactTest extends TestBase {
            //click on card
            app.getContact().RemoveContact();
 
+
        }
 
     //enter name
