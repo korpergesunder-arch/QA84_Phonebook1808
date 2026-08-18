@@ -47,6 +47,7 @@ public class AddContactTest extends TestBase {
            app.getContact().RemoveContact();
 
 
+
        }
 
     //enter name
